@@ -44,6 +44,7 @@ Deployed using Firebase Hosting for fast loading and reliable performance.
 🌐 Online Accessibility
 
 Accessible through any web browser without installation.
+
 Preview:
 <img width="1850" height="923" alt="image" src="https://github.com/user-attachments/assets/80c52096-94a9-4e6e-af41-e7f15b6fc7a8" />
 
