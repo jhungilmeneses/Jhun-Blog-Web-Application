@@ -1,0 +1,5 @@
+{
+  "name": "BlogHub",
+  "description": "A modern blog platform with a reader view, home page, and comprehensive admin dashboard for content management.",
+  "requestFramePermissions": []
+}

@@ -1,0 +1,63 @@
+{
+    "rules": {
+        ".read": false,
+        ".write": false,
+        "posts": {
+            ".read": true,
+            "$postId": {
+                ".write": true,
+                ".validate": "newData.hasChildren(['title', 'content', 'excerpt', 'author', 'date', 'readTime', 'category', 'status', 'views', 'imageUrl'])",
+                "title": {
+                    ".validate": "newData.isString() && newData.val().length > 0"
+                },
+                "content": {
+                    ".validate": "newData.isString()"
+                },
+                "excerpt": {
+                    ".validate": "newData.isString()"
+                },
+                "author": {
+                    ".validate": "newData.isString()"
+                },
+                "date": {
+                    ".validate": "newData.isString()"
+                },
+                "readTime": {
+                    ".validate": "newData.isString()"
+                },
+                "category": {
+                    ".validate": "newData.isString()"
+                },
+                "status": {
+                    ".validate": "newData.val() == 'Published' || newData.val() == 'Draft'"
+                },
+                "views": {
+                    ".validate": "newData.isNumber()"
+                },
+                "imageUrl": {
+                    ".validate": "newData.isString()"
+                }
+            }
+        },
+        "comments": {
+            ".read": true,
+            "$postId": {
+                ".write": true,
+                "$commentId": {
+                    ".validate": "newData.hasChildren(['text', 'date', 'author'])"
+                }
+            }
+        },
+        "subscribers": {
+            "$email_id": {
+                ".write": "!data.exists() || auth != null",
+                ".read": "auth != null", 
+                ".validate": "newData.hasChildren(['email', 'subscribedAt'])"
+            }
+        },
+        "analytics": {
+            ".write": "true",
+            ".read": "auth != null"
+        }
+    }
+}
